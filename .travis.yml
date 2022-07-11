@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t bhush/reactjs -f Dockerfile.dev .
+
+scripts:
+  - docker run bhush/reactjs npm run test -- --coverage
